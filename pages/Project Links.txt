@@ -1,0 +1,30 @@
+
+General Projects
+	java:
+	https://codehs.com/sandbox/chrisperez/Calculator_Program
+	https://codehs.com/sandbox/chrisperez/_ArithmeticSequences
+	https://codehs.com/sandbox/chrisperez/Uno_Project
+	https://codehs.com/sandbox/chrisperez/Uno_Game_v2
+	https://codehs.com/sandbox/chrisperez/Coffee_shop*** TODO
+	https://codehs.com/sandbox/chrisperez/Late_Sheet** TODO (set what late time is & a way to report all students that were late at the end)
+	https://codehs.com/sandbox/chrisperez/Word_Checker
+
+	https://codehs.com/sandbox/chrisperez/Virtual_Library**TODO
+
+	Python:
+	https://codehs.com/sandbox/chrisperez/Readability-1
+	https://codehs.com/sandbox/chrisperez/DNA_
+
+
+	Websites:
+	Creating websites using flask as server
+
+Algorithms
+https://codehs.com/sandbox/chrisperez/Selection_Sort
+https://codehs.com/sandbox/chrisperez/Insertion_Sort
+https://codehs.com/sandbox/chrisperez/Sorting_Algorithms
+
+Data Structures
+https://codehs.com/sandbox/chrisperez/Linked_Arrays
+
+

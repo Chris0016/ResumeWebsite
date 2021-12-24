@@ -1,0 +1,58 @@
+import java.util.*;
+import java.io.*;
+
+public class Make_Grid{
+
+    int[][] grid = new int[10][10];
+
+    public Make_Grid(String filename){
+        
+        Scanner read =  load_file(filename);
+        grid = fill_grid(read);
+        
+        
+    }   
+    
+    public Scanner load_file(String filename){
+        
+        try{
+            File obj = new File(filename);
+            Scanner reader = new Scanner(new FileReader (new File(filename)));
+            return reader;
+        
+        }
+        catch(Exception e){
+            System.out.print("Error in Make_Grid Constructor");
+            System.exit(1);
+        }
+        return null;
+    }
+    
+    public int[][] fill_grid(Scanner readerIN){
+        int[][] temp = new int[9][9];
+        int xcount , ycount;
+        xcount = ycount = 0;
+        
+        Scanner reader = readerIN;
+        
+        while(reader.hasNext()){
+            temp[xcount][ycount] = reader;
+            xcount++;
+            reader.next();
+            
+            if(xcount == 9){
+                xcount = 0;
+                ycount++;
+            }
+            
+        }
+        return temp;
+    
+    }
+    
+    
+    public int[][] get_grid(){
+        return grid;
+    }
+}
+

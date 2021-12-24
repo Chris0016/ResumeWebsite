@@ -1,0 +1,47 @@
+<pre><code>
+
+#include<stdio.h>
+#include<cs50.h>
+#include<string.h>
+#include <stdlib.h>
+
+bool isProperString(string input);
+string cipherText(string input , int key);
+int main(int argc, string argv[])
+{
+    
+    //If no input; Print "Usage: ./caesar key"
+    if (argc == 2 && isProperString(argv[1]) ) 
+        printf("Success\n");
+    else 
+    {    
+        printf("Usage: ./caesar key\n");
+        return -1;
+    }   
+    string plainText = get_string("PlainText: ");
+    
+    printf("Ciphertext: %s\n", cipherText(plainText, atoi(argv[1]) ) );
+    
+}
+
+bool isProperString(string input)
+{
+    for(int i = 0 ; i < strlen(input); i++)
+    {
+        char curr = input[i];
+        if  (!( (curr >= 48 ) && (curr<= 57) )) return false;
+    }
+    return true;
+}
+
+string cipherText(string input , int key){
+    string cipher = input;
+    for(int i = 0, n = strlen(input) ; i < n ; i++)
+    {
+        cipher[i] = input[i] + key; 
+    }
+    return cipher;
+
+}
+
+</code></pre>

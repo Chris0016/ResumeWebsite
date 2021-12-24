@@ -1,0 +1,11 @@
+// Full speed backwards
+ servoLeft.writeMicroseconds(1300);   // Left wheel clockwise
+ servoRight.writeMicroseconds(1700);  // Right wheelcounterclockwise
+
+// Turn left in place
+ servoLeft.writeMicroseconds(1300);   // Left wheel clockwise
+ servoRight.writeMicroseconds(1300);  // Right wheel clockwise
+ 
+// Turn right in place
+ servoLeft.writeMicroseconds(1700);   // Left wheel counterclockwise
+ servoRight.write Microseconds(1700); // Right wheel counterclockwise

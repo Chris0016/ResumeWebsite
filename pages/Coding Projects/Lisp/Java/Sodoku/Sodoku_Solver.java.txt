@@ -1,0 +1,94 @@
+public class Sodoku_Solver
+{
+    int[][] grid;
+    
+    public Sodoku_Solver(int[][] grid){
+        this.grid = grid;
+    }
+    public boolean possible(int x, int y, int number){
+        return row_valid( y, number) && column_valid(x , number) && box_valid(x, y, number);
+    }
+    
+    /**
+     * Returns a boolean from evaluating whether a given number can go in its row 
+     * 
+     * @param - int x-value of the coordinate to test
+     * @param - int y-value of the coordinate to test
+     * @param - int number, Number to check against
+     * 
+     * @return - Boolean non-null
+     * 
+     */
+    public boolean row_valid( int y, int number){
+        for (int i = 0; i <9; i++){
+            if (grid[i][y] == number) 
+                return false;
+        }
+        return true;
+    }
+    
+    
+     /**
+     * Returns a boolean from evaluating whether a given number can go its given column  
+     * 
+     * @param - int x-value of the coordinate to test
+     * @param - int y-value of the coordinate to test
+     * @param - int number, Number to check against
+     * 
+     * @return - Boolean non-null
+     * 
+     */
+    public boolean column_valid(int x, int number){
+        for (int i = 0; i < 9; i++){
+            if (grid[x][i] == number){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+     /**
+     * Returns a boolean from evaluating whether a given number can go its box(3x3)
+     * 
+     * @param - int x-value of the coordinate to test
+     * @param - int y-value of the coordinate to test
+     * @param - int number, Number to check against
+     * 
+     * @return - Boolean non-null
+     * 
+     */
+    public boolean box_valid(int x, int y, int number){
+        int xbox =get_unit( x / 3);
+        int ybox =get_unit( y / 3);
+       
+       
+        for (int i = xbox; i < xbox+3; i++ ){
+            for (int j = ybox; j < ybox+3; j++){
+                if (grid[i][j] == number )
+                    return false;
+            }
+        }
+        
+       return true;
+    }
+    
+    //Get the box where the given number belongs to
+    //Check if number belongs in that box
+    
+    public int get_unit(float num ){
+        int val;
+        
+        if (num > 2){
+           val = 6;
+        }
+       else if (num > 1){
+           val = 3;
+        }
+       else {
+           val = 0;
+        }
+       return val;
+    }
+    
+}
+

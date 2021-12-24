@@ -1,0 +1,19 @@
+
++450.0     Thu Mar 26 17:21:25 PDT 2020
+Balance:  450.00
+
+-10.0     Thu Mar 26 18:31:42 PDT 2020
+Balance:  440.00
+
++400.0     Thu Mar 26 18:47:36 PDT 2020
+Balance:  840.00
+
+-10.0      Fri Mar 27 07:55:09 PDT 2020
+Balance:  830.00
+
++5.0       Fri Mar 27 08:02:35 PDT 2020
+Balance:  835.00
+
+-5.0       Fri Mar 27 08:06:27 PDT 2020
+Balance:  830.00
+

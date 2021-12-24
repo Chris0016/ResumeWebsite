@@ -1,0 +1,63 @@
+#include<Servo.h> //Include servo library
+
+Servo servoLeft;
+Servo servoRight;
+
+void setup()
+
+{
+	servoLeft.attach(13);
+	servoRight.attach(12);
+	
+	pinMode(10, INPUT); pinMode(9, OUTPUT);	// Left IR LED & Receiver
+	pinMode(3, INPUT); pinMode(2, OUTPUT);	//Right IR LED & Reciever
+	serial.begin(9600); 			//set data rate to 9600 bps
+	
+	
+
+}
+
+void loop()
+{
+	int irLeft = irDetect(9,10 38000);	// Left side
+	int irRight = irDetect(2, 3, 38000);	// Right side
+	int irFront = ir... 			//add third ir facing forward
+	delay(100);
+	if(irFront == 0){
+		//Obstacle in front
+		stop();
+	}
+	if(irLeft == 0)	{
+		//No door on the left
+		
+	}
+	if(irRight == 0){
+		//No door on the right
+	}
+	
+}
+
+//IR Object detection function
+
+int irDetect(int irLedPin , int irReceiverPin , long frequency ){
+	tone(irLedPin , frequency , 8 );    IRLED 38 KHz for at least 1 ms
+	delay(1); 				//wait 1 ms
+	int ir = digitalRead(irReceiverpin);
+	delay(1);
+	return ir;
+	
+}
+void moveForward(int time){
+	//Full speed. Move forward
+	servoLeft.writeMicroseconds(1700);
+	servoRight.writeMicroseconds(1300)
+	delay(time) 				//3 seconds
+	
+	
+}
+void stop(){
+	serLeft.detach();
+	servoRight.detach();
+}
+
+.

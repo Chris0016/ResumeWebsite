@@ -1,0 +1,122 @@
+<pre><code>
+
+{% extends "layout.html" %}
+
+       {% block prod_type %} 
+         Drinks 
+       {% endblock %}
+
+        {% block prod_description %}
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum."
+        {% endblock %}
+
+
+      {% block prod_display %}
+     <products class = "hot_drinks_groups">
+        <a href =  "#Chocolate">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Drlu-2f_5B4eup580MMXtwHaHa%26pid%3DApi%26h%3D180%26p%3D0&f=1"
+          alt="Hot Chocolate" style="width:100%">
+          <div class="product_caption">
+              <p>Hot Chocolate</p>
+          </div>
+        </div>
+        </a>
+
+        <a href =  "#Blonde_Roast">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ZWF77ylTptYow9VsuImJlgAAAA%26pid%3DApi%26h%3D180%26p%3D0&f=1"
+          alt="Blonde_Roast" style="width:100%">
+          <div class="product_caption">
+              <p>Blonde Roast</p>
+          </div>
+        </div>
+        </a>
+
+         <a href =  "#Cappuccino">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.merriam-webster.com%2Fassets%2Fmw%2Fimages%2Farticle%2Fart-wap-landing-mp-lg%2Fcappuccino-2029-e80b7c6d318c7862df2c4c8623a11f99%401x.jpg&f=1&nofb=1"
+          alt="Cappuccino" style="width:100%">
+          <div class="product_caption">
+              <p>Cappuccino</p>
+          </div>
+        </div>
+        </a>
+         <a href =  "#Latte">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.soberjulie.com%2Fwp-content%2Fuploads%2F2014%2F10%2FCinnamon-Dolce-Latte-recipe-a.jpg&f=1&nofb=1"
+          alt="Latte" style="width:100%">
+          <div class="product_caption">
+              <p>Latte</p>
+          </div>
+        </div>
+        </a>
+
+         <a href =  "#Macchiato">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fhitsandmrs.files.wordpress.com%2F2014%2F02%2Fcaramel-macchiato.jpg&f=1&nofb=1"
+          alt="Macchiato" style="width:100%">
+          <div class="product_caption">
+              <p>Macchiato</p>
+          </div>
+        </div>
+        </a>
+         <h2 class = "product_subheaders">Cold Drinks</h2>
+      </products>
+
+        <products class= "Cold Drinks">
+            <a href =  "#Macchiato">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fhitsandmrs.files.wordpress.com%2F2014%2F02%2Fcaramel-macchiato.jpg&f=1&nofb=1"
+          alt="Macchiato" style="width:100%">
+          <div class="product_caption">
+              <p>Macchiato</p>
+          </div>
+        </div>
+        </a>
+            <a href =  "#Latte">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.soberjulie.com%2Fwp-content%2Fuploads%2F2014%2F10%2FCinnamon-Dolce-Latte-recipe-a.jpg&f=1&nofb=1"
+          alt="Latte" style="width:100%">
+          <div class="product_caption">
+              <p>Latte</p>
+          </div>
+        </div>
+        </a>
+           <a href =  "#Cappuccino">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.merriam-webster.com%2Fassets%2Fmw%2Fimages%2Farticle%2Fart-wap-landing-mp-lg%2Fcappuccino-2029-e80b7c6d318c7862df2c4c8623a11f99%401x.jpg&f=1&nofb=1"
+          alt="Cappuccino" style="width:100%">
+          <div class="product_caption">
+              <p>Cappuccino</p>
+          </div>
+        </div>
+        </a>
+          <a href =  "#Chocolate">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Drlu-2f_5B4eup580MMXtwHaHa%26pid%3DApi%26h%3D180%26p%3D0&f=1"
+          alt="Hot Chocolate" style="width:100%">
+          <div class="product_caption">
+              <p>Hot Chocolate</p>
+          </div>
+        </div>
+        </a>
+
+        <a href =  "#Blonde_Roast">
+        <div class="product">
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ZWF77ylTptYow9VsuImJlgAAAA%26pid%3DApi%26h%3D180%26p%3D0&f=1"
+          alt="Blonde_Roast" style="width:100%">
+          <div class="product_caption">
+              <p>Blonde Roast</p>
+          </div>
+        </div>
+        </a>
+
+        </products>
+    {% endblock %}
+
+</code></code>

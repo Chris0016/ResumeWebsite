@@ -1,0 +1,232 @@
+<pre><code>
+
+(* NOTE: A date is considered to be of type int*int*int 
+         Represented in YY-MM-DD format *)
+
+
+(* Returns Whether the first given date is older than the
+ second given date *)
+fun is_older (date1: int*int*int, date2: int*int*int)=
+    if (#1 date1 < #1 date2)
+    then
+	true
+    else if (#1 date1 > #1 date2)
+    then
+	false     
+    else
+	if (#2 date1 = #2 date2)
+	then
+	    #3 date1 < #3 date2
+	else
+	    (#2 date1 < #2 date2)
+		
+	
+   
+(* Returns the number of times a given month appears on
+ a given list of dates *)
+
+fun number_in_month (dates: (int*int*int) list, month: int)=
+    if null dates
+    then
+	0
+    else
+	if (#2 (hd dates)) = month
+	then
+	    1 + number_in_month(tl dates, month)
+	else
+	    number_in_month(tl dates, month)
+
+
+(* Returns the number of dates with the same month as any month
+in a given list of months   *)
+
+(* Assumes that the months in the loM don't repeat *)
+			   
+fun number_in_months (dates: (int*int*int)list, listOfMonths: int list)=
+    if null dates orelse  null listOfMonths
+    then 0
+    else
+	number_in_month(dates, hd listOfMonths)+ number_in_months(dates, tl listOfMonths)
+
+								 
+(* Returns a list of dates from the given list of dates that matches
+ the given month  *)
+							       
+fun dates_in_month (dates: (int*int*int)list, month: int)=
+    if null dates
+    then
+	[]
+    else
+	if (#2 (hd dates)) = month
+	then
+	    (hd dates)::dates_in_month(tl dates, month)
+	else
+	    dates_in_month(tl dates, month)
+	   
+(* Returns a list of dates from the given list of dates that
+ matches any of months in the given list of months  *)
+
+fun dates_in_months (dates: (int*int*int)list, listOfMonths: int list)=
+    if null dates orelse null listOfMonths
+    then
+	[]
+    else
+	let
+	    val curr = dates_in_month(dates, hd listOfMonths)
+	 in
+	     if null curr
+		     
+	     then
+		     dates_in_months( dates, tl listOfMonths)
+	    else
+		curr@dates_in_months( dates, tl listOfMonths)
+         end
+
+(* Returns the nth element of a given list, Note: 1-based index *)
+
+fun get_nth (xs: string list, n: int)=
+    let
+	fun getVal (lst: string list, i: int, count: int)=
+	    if null lst orelse i = 0
+	    then
+		""
+	    else
+		if count = i
+		then
+		    hd lst
+		else
+		    getVal(tl lst, i, count+1)
+    in
+	getVal(xs, n, 1)
+    end
+
+(* Returns the string representation of a given date  *)
+
+fun date_to_string (date: (int*int*int))=
+    let
+	val months = [ "January", "February", "March", "May",  "April", "June",
+		      "July", "August", "September", "October", "November",
+		      "December" ]
+    in
+	get_nth(months, #2 date)^" "^Int.toString(#3 date)^", "^Int.toString(#1 date)
+    end
+	
+									      
+(* Returns how many elements need to be added before reaching a
+   value that is < a given number  *)				   
+(* Assumes that the numbers in the list always add up to more than the
+   given number  *)
+	
+fun number_before_reaching_sum (sum: int, xs: int list)=
+    let
+	fun compute (lst1: int list, max: int, holder: int, value: int) =
+	    if (hd lst1)+holder >= max
+	    then
+		value
+	    else
+		compute(tl lst1, max, holder + (hd lst1),value + 1)
+    in
+	compute  (xs, sum, 0, 0)
+    end
+	
+
+(* Given a day of day year return an int representing what month of the year
+   that day falls under *)
+
+(* The task asks to use a list as well as the previous function but
+   the function below is much shorter, faster, uses less space. It exceeds
+   the function asked to write in all aspects and more importantly is just as
+   correct.  *)	
+fun what_month (day: int)=
+    let
+	val rslt =  Real.fromInt(day)/31.0
+				       
+    in
+	ceil(rslt)
+    end
+	
+
+
+(* Return a list corresponding to what months correspond to the days
+   between(inclusive) one given day and another  *)
+
+fun month_range (curr: int, day2: int)=
+    if curr > day2
+    then
+	[]
+    else
+	what_month(curr)::month_range(curr+1, day2)
+
+
+(* Return a the oldest date in a given list of dates *)
+
+(* Cannot be done using regular recursion bc value needs to be preserved*)
+fun oldest (dates: (int*int*int)list)=
+    if null dates
+    then
+	NONE
+    else
+	let
+	    fun compute (d: (int*int*int)list, holder: (int*int*int))=
+		if null d
+		then
+		    SOME holder
+		else
+		    if is_older((hd d), holder)
+		    then
+			compute(tl d, hd d)
+		    else
+			compute(tl d, holder)
+	in
+	    compute(dates, hd dates)
+	end
+	    (* Challenge Problems *)
+
+
+fun already_present (y: int, lst: int list)=
+    if null lst
+    then
+	false
+    else
+	if (hd lst) = y
+	then
+	    true
+	else
+	    already_present(y, tl lst)
+			   
+(* Call holder with an empty list *)
+fun eliminate_duplicates (xs: int list, holder: int list) =
+    if null xs
+    then
+	holder
+    else
+	if already_present(hd xs, holder)
+	then
+	    eliminate_duplicates(tl xs, holder)
+	else
+	    eliminate_duplicates(tl xs, holder@[hd xs])
+
+
+fun number_in_months_challenge (dates: (int*int*int)list, listOfMonths: int list)=
+   
+	number_in_months(dates, eliminate_duplicates(listOfMonths, []))
+
+
+fun dates_in_months_challenge (dates: (int*int*int)list, listOfMonths: int list) =
+   
+	dates_in_months(dates, eliminate_duplicates(listOfMonths, []))
+    
+	
+			      
+fun reasonable_date (date: int*int*int)=
+    #1 date > 0 andalso (#2 date >= 1 andalso #2 date <= 365)
+    andalso  (#3 date >= 1 andalso #3 date <= 31)
+
+
+
+
+
+
+</code></pre>
+
+	

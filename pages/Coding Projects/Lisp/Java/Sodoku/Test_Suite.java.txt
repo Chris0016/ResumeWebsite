@@ -1,0 +1,10 @@
+public class Test_Suite{
+    int[][] grid1 = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
+    int[][] grid2 = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
+    int[][] grid3 = {{}, {}, {}, {}, {}, {}, {}, {}, {}};
+    
+    public Test_Suite(){
+        //Sodoku_Solver obj = new Sodoku_Solver();
+    }
+        
+}
